@@ -47,6 +47,7 @@ export default function Portfolio() {
     {
       id: "greenlight",
       company: "Greenlight Financial Technology",
+      website: "https://greenlight.com/",
       tagline: "Debit Card for Kids and Teens",
       position: "Senior Software Engineer",
       duration: "Sept 2024 – Present",
@@ -66,6 +67,7 @@ export default function Portfolio() {
     {
       id: "coinswitch",
       company: "CoinSwitch",
+      website: "https://coinswitch.co/",
       tagline: "India's Largest Crypto Exchange",
       position: "SDE2",
       duration: "Jan 2022 – Sept 2024",
@@ -83,6 +85,7 @@ export default function Portfolio() {
     {
       id: "visa",
       company: "Visa Inc. (Cybersource)",
+      website: "https://www.cybersource.com/en.html",
       tagline: "Payment Platform & Fraud Management",
       position: "Senior Software Engineer",
       duration: "Nov 2019 – Jan 2022",
@@ -101,6 +104,7 @@ export default function Portfolio() {
     {
       id: "tcs",
       company: "Tata Consultancy Services",
+      website: "https://www.tcs.com/home-page",
       tagline: "Building Perpetually Adaptive Enterprises",
       position: "Software Engineer (Cisco Project)",
       duration: "Aug 2017 – Nov 2019",
@@ -278,7 +282,15 @@ export default function Portfolio() {
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-1">
                           <CardTitle className="text-xl group-hover:text-blue-600 transition-colors duration-200">
-                            {exp.company}
+                            <Link
+                              href={exp.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:underline flex items-center gap-2"
+                            >
+                              {exp.company}
+                              <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                            </Link>
                           </CardTitle>
                           <Badge variant="secondary" className="text-xs font-medium">
                             {exp.tagline}
