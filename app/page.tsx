@@ -160,7 +160,7 @@ export default function Portfolio() {
       <header className="relative bg-white/80 backdrop-blur-sm shadow-sm border-b border-slate-200/50 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <h1
-            className={`text-2xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
+            className={`text-xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
           >
             Avinash Verma
           </h1>
@@ -195,9 +195,12 @@ export default function Portfolio() {
           <div
             className={`mb-8 transition-all duration-1000 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-4">
-              Senior Software Engineer
+            <h1 className="text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-2">
+              Avinash Verma
             </h1>
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-slate-700 via-blue-700 to-purple-700 bg-clip-text text-transparent mb-4">
+              Senior Software Engineer
+            </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               8 years of experience building scalable, low-latency systems in fintech and cloud-based domains. Proven
               track record of optimizing system performance, leading technical initiatives, and mentoring engineers.
