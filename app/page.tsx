@@ -18,13 +18,16 @@ import {
   Download,
   ChevronDown,
   ChevronUp,
-  Building2,
   GraduationCap,
   Code,
   Server,
   Database,
   Cloud,
   ArrowRight,
+  CreditCard,
+  Bitcoin,
+  Shield,
+  Globe,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -43,11 +46,14 @@ export default function Portfolio() {
   const experiences = [
     {
       id: "greenlight",
-      company: "Greenlight Financial Tech",
+      company: "Greenlight Financial Technology",
+      tagline: "Debit Card for Kids and Teens",
       position: "Senior Software Engineer",
       duration: "Sept 2024 – Present",
       location: "Bengaluru, India",
-      color: "from-emerald-500 to-teal-600",
+      color: "from-green-500 to-emerald-600",
+      icon: <CreditCard className="w-6 h-6 text-white" />,
+      description: "Leading fintech company providing smart debit cards and financial education for families",
       achievements: [
         "Led Notifications and User-Actions services, optimizing delivery success rate from 89% to 99%",
         "Migrated legacy systems to microservices, reducing latency by 40% and improving scalability",
@@ -60,10 +66,13 @@ export default function Portfolio() {
     {
       id: "coinswitch",
       company: "CoinSwitch",
+      tagline: "India's Largest Crypto Exchange",
       position: "SDE2",
       duration: "Jan 2022 – Sept 2024",
       location: "Bengaluru, India",
-      color: "from-blue-500 to-indigo-600",
+      color: "from-blue-600 to-indigo-700",
+      icon: <Bitcoin className="w-6 h-6 text-white" />,
+      description: "Premier cryptocurrency exchange platform enabling Bitcoin trading and crypto investments",
       achievements: [
         "Built Mutual-Funds platform and core microservices: Orders, Identity/KYC, Portfolio",
         "Improved crypto portfolio service performance 5x; reduced P99 latency to 300ms",
@@ -73,26 +82,37 @@ export default function Portfolio() {
     },
     {
       id: "visa",
-      company: "Visa Inc.",
+      company: "Visa Inc. (Cybersource)",
+      tagline: "Payment Platform & Fraud Management",
       position: "Senior Software Engineer",
       duration: "Nov 2019 – Jan 2022",
       location: "Bengaluru, India",
-      color: "from-purple-500 to-violet-600",
+      color: "from-blue-800 to-purple-700",
+      icon: <Shield className="w-6 h-6 text-white" />,
+      description:
+        "Global payment technology company providing secure payment processing and fraud management solutions",
       achievements: [
         "Engineered tokenization workflows in Token Management System (TMS) supporting 1B+ transactions",
         "Worked as Site Reliability Engineer (SRE) for 1 year, managing technical outages and maintaining 99.999% system availability",
+        "Developed fraud detection algorithms reducing false positives by 25%",
+        "Optimized payment processing pipelines handling millions of daily transactions",
       ],
     },
     {
-      id: "cisco",
-      company: "Cisco Systems (via TCS)",
-      position: "Software Engineer",
+      id: "tcs",
+      company: "Tata Consultancy Services",
+      tagline: "Building Perpetually Adaptive Enterprises",
+      position: "Software Engineer (Cisco Project)",
       duration: "Aug 2017 – Nov 2019",
       location: "Bengaluru, India",
-      color: "from-orange-500 to-red-500",
+      color: "from-indigo-600 to-blue-800",
+      icon: <Globe className="w-6 h-6 text-white" />,
+      description: "Global IT services and consulting company delivering digital transformation solutions",
       achievements: [
-        "Developed RESTful APIs for Webex using Spring Boot and Angular 6",
+        "Developed RESTful APIs for Webex collaboration platform using Spring Boot and Angular 6",
         "Hands-on experience with full-stack systems across J2EE and client-server architectures",
+        "Collaborated with Cisco engineering teams on video conferencing solutions",
+        "Implemented scalable microservices architecture for enterprise communication tools",
       ],
     },
   ]
@@ -235,29 +255,37 @@ export default function Portfolio() {
             <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent mb-4">
               Work Experience
             </h2>
-            <p className="text-slate-600">8 years of building scalable systems and leading technical initiatives</p>
+            <p className="text-slate-600">
+              8 years of building scalable systems across fintech, crypto, and enterprise solutions
+            </p>
           </div>
 
           <div className="space-y-6">
             {experiences.map((exp, index) => (
               <Card
                 key={exp.id}
-                className={`group transition-all duration-500 hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-transparent hover:border-l-blue-500 animate-fade-in-up`}
+                className={`group transition-all duration-500 hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-transparent hover:border-l-blue-500 animate-fade-in-up overflow-hidden`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <CardHeader className="cursor-pointer" onClick={() => toggleExperience(exp.id)}>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-4">
                       <div
-                        className={`w-12 h-12 rounded-lg bg-gradient-to-br ${exp.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${exp.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
                       >
-                        <Building2 className="w-6 h-6 text-white" />
+                        {exp.icon}
                       </div>
-                      <div>
-                        <CardTitle className="text-lg group-hover:text-blue-600 transition-colors duration-200">
-                          {exp.company}
-                        </CardTitle>
-                        <CardDescription className="flex items-center gap-4 mt-1">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-1">
+                          <CardTitle className="text-xl group-hover:text-blue-600 transition-colors duration-200">
+                            {exp.company}
+                          </CardTitle>
+                          <Badge variant="secondary" className="text-xs font-medium">
+                            {exp.tagline}
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-slate-600 mb-2 max-w-2xl">{exp.description}</p>
+                        <CardDescription className="flex flex-wrap items-center gap-4">
                           <span className="font-medium text-slate-700">{exp.position}</span>
                           <span className="flex items-center gap-1 text-slate-500">
                             <Calendar className="w-3 h-3" />
@@ -284,18 +312,22 @@ export default function Portfolio() {
                 {expandedExperience === exp.id && (
                   <CardContent className="pt-0 animate-fade-in">
                     <Separator className="mb-4" />
-                    <ul className="space-y-3">
+                    <div className="grid gap-3">
                       {exp.achievements.map((achievement, achievementIndex) => (
-                        <li
+                        <div
                           key={achievementIndex}
-                          className={`flex items-start gap-3 text-slate-600 group/item hover:text-slate-800 transition-colors duration-200 animate-slide-in-left`}
+                          className={`flex items-start gap-3 p-3 rounded-lg bg-gradient-to-r from-slate-50 to-white border border-slate-100 group/item hover:shadow-md transition-all duration-200 animate-slide-in-left`}
                           style={{ animationDelay: `${achievementIndex * 100}ms` }}
                         >
-                          <ArrowRight className="w-4 h-4 mt-0.5 text-blue-500 group-hover/item:translate-x-1 transition-transform duration-200 flex-shrink-0" />
-                          <span>{achievement}</span>
-                        </li>
+                          <div
+                            className={`w-6 h-6 rounded-full bg-gradient-to-r ${exp.color} flex items-center justify-center flex-shrink-0 mt-0.5`}
+                          >
+                            <ArrowRight className="w-3 h-3 text-white" />
+                          </div>
+                          <span className="text-slate-700 leading-relaxed">{achievement}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </CardContent>
                 )}
               </Card>
