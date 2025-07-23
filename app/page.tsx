@@ -203,10 +203,16 @@ export default function Portfolio() {
             </Button>
             <Button
               size="sm"
+              asChild
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-200"
             >
-              <Download className="w-4 h-4 mr-2" />
-              Resume
+              <Link
+                href="https://drive.google.com/file/d/1Nq0_fVKt1G3B1s9S-UvIqe179FW9-t3N/view?usp=drive_link"
+                target="_blank"
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Resume
+              </Link>
             </Button>
           </div>
         </div>
@@ -549,7 +555,7 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-8 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-slate-300">© 2024 Avinash Verma. Built with Next.js and Tailwind CSS.</p>
+          <p className="text-slate-300">© 2025 Avinash Verma. Built with Next.js and Tailwind CSS.</p>
         </div>
       </footer>
 
