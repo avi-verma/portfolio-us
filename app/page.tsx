@@ -159,11 +159,34 @@ export default function Portfolio() {
       {/* Header */}
       <header className="relative bg-white/80 backdrop-blur-sm shadow-sm border-b border-slate-200/50 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1
-            className={`text-xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
+          <div
+            className={`flex items-center gap-4 transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
           >
-            Avinash Verma
-          </h1>
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              className="group hover:scale-105 transition-all duration-200 hover:border-blue-500 hover:text-blue-600 bg-transparent"
+            >
+              <Link href="https://linkedin.com/in/avi-verma" target="_blank">
+                <Linkedin className="w-4 h-4 mr-2 group-hover:text-blue-600" />
+                LinkedIn
+                <ExternalLink className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              className="group hover:scale-105 transition-all duration-200 hover:border-purple-500 hover:text-purple-600 bg-transparent"
+            >
+              <Link href="https://github.com/avi-verma" target="_blank">
+                <Github className="w-4 h-4 mr-2 group-hover:text-purple-600" />
+                GitHub
+                <ExternalLink className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+              </Link>
+            </Button>
+          </div>
           <div
             className={`flex gap-4 transition-all duration-1000 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
           >
